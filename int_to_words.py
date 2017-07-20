@@ -1,5 +1,5 @@
 #A simple python program to print an integer between 1 to 9999 in words
-n=int(input('please enter an integer between 1 and 9999: '))
+number=int(input('please enter an integer between 1 and 9999: '))
 
 #Defining the required numbers in words in a dictionary with key value pairs
 words = { 1:"one", 2:"two", 3:"three", 4:"four", 5:"five", 6:"six", 7:"seven",
@@ -9,28 +9,28 @@ words = { 1:"one", 2:"two", 3:"three", 4:"four", 5:"five", 6:"six", 7:"seven",
           70:"seventy", 80:"eighty", 90:"ninety", 100:"hundred", 1000:"thousand"}
 
 #if number is in thousands
-if n//1000 >= 1:
-    y = n//1000
-    print(words[y], "thousand", end=" ")
+if number//1000 >= 1:
+    temp_number = number//1000
+    print(words[temp_number], "thousand", end=" ")
 
 #removing the "thousand" part of the number
-x = n%1000
+remainder = number%1000
 
 #if last 3 digits of the number is in hundreds
-if x//100 >= 1:
-    y = x//100
-    print(words[y], "hundred", end=" ")
+if remainder//100 >= 1:
+    temp_number = remainder//100
+    print(words[temp_number], "hundred", end=" ")
 
 #removing the "hundred" pat of the number
-x = n%100
+remainder = number%100
 
 
-if x//10 > 1:       #if last two digits of number is more than or equal to 20
-    y = x//10
-    print(words[y*10], end=" ")
-    y = x%10
-    if y:           #if number has a digit in once's place other than digit 0
-        print(words[y])
+if remainder//10 > 1:       #if last two digits of number is more than or equal to 20
+    temp_number = remainder//10
+    print(words[temp_number*10], end=" ")
+    temp_number = remainder%10
+    if temp_number:           #if number has a digit in once's place other than digit 0
+        print(words[temp_number])
 else:
-    if x:           #if last two digits of number is not 0
-        print(words[x])
+    if remainder:           #if last two digits of number is not 0
+        print(words[remainder])
